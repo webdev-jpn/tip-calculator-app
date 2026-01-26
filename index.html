@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+    <script defer src="./js/main.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">
+        <img src="./images/logo.svg" alt="" aria-hidden="true" />
+        <span class="sr-only">SPLITTER</span>
+      </h1>
+      <section class="calculator">
+        <div class="input">
+          <div class="input-group">
+            <div class="head-wrapper">
+              <label for="bill" class="input-label">Bill</label>
+              <p id="bill-error" class="error-massage">Can’t be zero</p>
+            </div>
+            <input
+              type="number"
+              name="bill"
+              id="bill"
+              class="user-input"
+              aria-describedby="bill-error"
+            />
+            <img class="input-icon" src="./images/icon-dollar.svg" alt="" />
+          </div>
+
+          <fieldset class="input-group">
+            <legend class="input-label">Select Tip %</legend>
+            <div class="radio-wrapper">
+              <div class="tip-option">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip5"
+                  value="5"
+                  class="user-select"
+                />
+                <label for="tip5" class="select-label">5%</label>
+              </div>
+
+              <div class="tip-option">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip10"
+                  value="10"
+                  class="user-select"
+                />
+                <label for="tip10" class="select-label">10%</label>
+              </div>
+
+              <div class="tip-option">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip15"
+                  value="15"
+                  class="user-select"
+                />
+                <label for="tip15" class="select-label">15%</label>
+              </div>
+
+              <div class="tip-option">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip25"
+                  value="25"
+                  class="user-select"
+                />
+                <label for="tip25" class="select-label">25%</label>
+              </div>
+
+              <div class="tip-option">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip50"
+                  value="50"
+                  class="user-select"
+                />
+                <label for="tip50" class="select-label">50%</label>
+              </div>
+
+              <div class="tip-option">
+                <input
+                  type="number"
+                  name="custom"
+                  id="custom"
+                  placeholder="Custom"
+                  class="user-input-custom"
+                  aria-label="Custom tip percentage"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="input-group">
+            <div class="head-wrapper">
+              <label for="people" class="input-label">Number of People</label>
+              <p id="people-error" class="error-massage">Can’t be zero</p>
+            </div>
+            <input
+              type="number"
+              name="people"
+              id="people"
+              class="user-input"
+              aria-describedby="people-error"
+            />
+            <img class="input-icon" src="./images/icon-person.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result-group">
+            <div class="result-wrapper">
+              <p class="result-title">Tip Amount</p>
+              <span class="result-subtitle">/ person</span>
+            </div>
+            <p id="output-tip" class="result-number">$0.00</p>
+          </div>
+
+          <div class="result-group">
+            <div class="result-wrapper">
+              <p class="result-title">Total</p>
+              <span class="result-subtitle">/ person</span>
+            </div>
+            <p id="output-total" class="result-number">$0.00</p>
+          </div>
+
+          <input type="reset" value="Reset" id="reset" class="reset" />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
