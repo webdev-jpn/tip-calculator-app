@@ -17,12 +17,29 @@ let btnTipPercent = 0;
 let customTipPercent = 0;
 
 billInput.addEventListener("input", (e) => {
+  if (billInput.value.length > 6) {
+    billInput.value = billInput.value.slice(0, 6);
+  }
   billValue = parseFloat(billInput.value) || 0;
+
+  if (billValue <= 0 && billInput.value !== "") {
+    billInput.parentElement.classList.add("error");
+  } else {
+    billInput.parentElement.classList.remove("error");
+  }
+
   calculate();
 });
 
 peopleInput.addEventListener("input", (e) => {
   peopleValue = parseFloat(peopleInput.value) || 0;
+
+  if (peopleValue <= 0 && peopleInput.value !== "") {
+    peopleInput.parentElement.classList.add("error");
+  } else {
+    peopleInput.parentElement.classList.remove("error");
+  }
+
   calculate();
 });
 
@@ -57,6 +74,9 @@ function calculate() {
 
     tipAmountOutput.textContent = `$${tipPerPerson.toFixed(2)}`;
     totalOutput.textContent = `$${totalPerPerson.toFixed(2)}`;
+  } else {
+    tipAmountOutput.textContent = "$0.00";
+    totalOutput.textContent = "$0.00";
   }
 }
 
@@ -73,4 +93,7 @@ resetBtn.addEventListener("click", (e) => {
 
   tipAmountOutput.textContent = "$0.00";
   totalOutput.textContent = "$0.00";
+
+  billInput.parentElement.classList.remove("error");
+  peopleInput.parentElement.classList.remove("error");
 });
