@@ -37,15 +37,9 @@
           <div class="input-group">
             <div class="head-wrapper">
               <label for="bill" class="input-label">Bill</label>
-              <p id="bill-error" class="error-message">Can’t be zero</p>
+              <p id="bill-error" class="error-message" hidden>Can’t be zero</p>
             </div>
-            <input
-              type="number"
-              name="bill"
-              id="bill"
-              class="user-input"
-              aria-describedby="bill-error"
-            />
+            <input type="number" name="bill" id="bill" class="user-input" />
             <img class="input-icon" src="./images/icon-dollar.svg" alt="" />
           </div>
 
@@ -123,15 +117,11 @@
           <div class="input-group">
             <div class="head-wrapper">
               <label for="people" class="input-label">Number of People</label>
-              <p id="people-error" class="error-message">Can’t be zero</p>
+              <p id="people-error" class="error-message" hidden>
+                Can’t be zero
+              </p>
             </div>
-            <input
-              type="number"
-              name="people"
-              id="people"
-              class="user-input"
-              aria-describedby="people-error"
-            />
+            <input type="number" name="people" id="people" class="user-input" />
             <img class="input-icon" src="./images/icon-person.svg" alt="" />
           </div>
         </div>

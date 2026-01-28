@@ -8,6 +8,10 @@ const customInput = document.getElementById("custom");
 const tipAmountOutput = document.getElementById("output-tip");
 const totalOutput = document.getElementById("output-total");
 
+// Error message elements
+const billError = document.getElementById("bill-error");
+const peopleError = document.getElementById("people-error");
+
 // Reset button
 const resetBtn = document.getElementById("reset");
 
@@ -24,8 +28,14 @@ billInput.addEventListener("input", (e) => {
 
   if (billValue <= 0 && billInput.value !== "") {
     billInput.parentElement.classList.add("error");
+    billError.hidden = false;
+    billInput.setAttribute("aria-invalid", "true");
+    billInput.setAttribute("aria-describedby", "bill-error");
   } else {
     billInput.parentElement.classList.remove("error");
+    billError.hidden = true;
+    billInput.setAttribute("aria-invalid", "false");
+    billInput.removeAttribute("aria-describedby");
   }
 
   calculate();
@@ -40,8 +50,13 @@ peopleInput.addEventListener("input", (e) => {
 
   if (peopleValue <= 0 && peopleInput.value !== "") {
     peopleInput.parentElement.classList.add("error");
+    peopleError.hidden = false;
+    peopleInput.setAttribute("aria-invalid", "true");
+    peopleInput.setAttribute("aria-describedby", "people-error");
   } else {
     peopleInput.parentElement.classList.remove("error");
+    peopleInput.setAttribute("aria-invalid", "false");
+    peopleInput.removeAttribute("aria-describedby");
   }
 
   calculate();
@@ -121,4 +136,12 @@ resetBtn.addEventListener("click", (e) => {
   tipButtons.forEach((button) => {
     button.checked = false;
   });
+
+  billError.hidden = true;
+  billInput.setAttribute("aria-invalid", "false");
+  billInput.removeAttribute("aria-describedby");
+
+  peopleError.hidden = true;
+  peopleInput.setAttribute("aria-invalid", "false");
+  peopleInput.removeAttribute("aria-describedby");
 });
