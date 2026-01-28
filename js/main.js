@@ -32,6 +32,10 @@ billInput.addEventListener("input", (e) => {
 });
 
 peopleInput.addEventListener("input", (e) => {
+  if (peopleInput.value.length > 6) {
+    peopleInput.value = peopleInput.value.slice(0, 6);
+  }
+
   peopleValue = parseFloat(peopleInput.value) || 0;
 
   if (peopleValue <= 0 && peopleInput.value !== "") {
@@ -55,8 +59,25 @@ tipButtons.forEach((button) => {
 
 // Custom tip input
 customInput.addEventListener("input", (e) => {
+  if (customInput.value !== "") {
+    tipButtons.forEach((button) => {
+      button.checked = false;
+    });
+    btnTipPercent = 0;
+    if (parseFloat(customInput.value) > 100) {
+      customInput.value = 100;
+    }
+  }
+
   customTipPercent = parseFloat(customInput.value) || 0;
   calculate();
+});
+
+customInput.addEventListener("focus", (e) => {
+  tipButtons.forEach((button) => {
+    button.checked = false;
+  });
+  btnTipPercent = 0;
 });
 
 function calculate() {
@@ -96,4 +117,8 @@ resetBtn.addEventListener("click", (e) => {
 
   billInput.parentElement.classList.remove("error");
   peopleInput.parentElement.classList.remove("error");
+
+  tipButtons.forEach((button) => {
+    button.checked = false;
+  });
 });

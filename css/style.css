@@ -24,6 +24,13 @@ legend {
   width: 100%;
 }
 
+.input-group.error .error-message {
+  display: block;
+}
+.input-group.error .user-input {
+  border: 2px solid #e17052;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -38,7 +45,7 @@ legend {
 
 .input-label,
 .custom-label,
-.error-massage,
+.error-message,
 .user-input,
 .user-input-custom,
 .result-title,
@@ -152,7 +159,7 @@ body {
   color: #5e7a7d;
 }
 
-.error-massage {
+.error-message {
   display: none;
   color: #e17052;
 }
